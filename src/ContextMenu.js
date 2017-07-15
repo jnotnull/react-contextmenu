@@ -154,11 +154,11 @@ export default class ContextMenu extends AbstractMenu {
 
         if (!this.menu) return menuStyles;
 
-        const { innerWidth, innerHeight } = window;
+        const { innerWidth, innerHeight, scrolly} = window;
         const rect = this.menu.getBoundingClientRect();
 
         if (y + rect.height > innerHeight) {
-            menuStyles.top -= rect.height;
+            menuStyles.top -= (rect.height + scrolly);
         }
 
         if (x + rect.width > innerWidth) {
